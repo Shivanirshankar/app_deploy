@@ -24,7 +24,9 @@ jobs:
 
     - name: Download and Set Up NGROK
       run: |
-      curl -o ngrok.zip https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-windows-amd64.zip powershell -Command "Expand-Archive -Path ngrok.zip -DestinationPath ." ./ngrok.exe authtoken YOUR_NGROK_AUTH_TOKEN
+        curl -o ngrok.zip https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-windows-amd64.zip
+        powershell -Command "Expand-Archive -Path ngrok.zip -DestinationPath ."
+        ./ngrok.exe authtoken YOUR_NGROK_AUTH_TOKEN
 
     - name: Start NGROK
       run: Start-Process -NoNewWindow -FilePath "./ngrok.exe" -ArgumentList "http 5000"
@@ -32,5 +34,8 @@ jobs:
     - name: Start Flask Application
       shell: cmd
       run: python app/app.py
-   
 
+    - name: Keep the process running
+      run: |
+        echo "Keeping the job active..."
+        Start-Sleep -Seconds 3600
