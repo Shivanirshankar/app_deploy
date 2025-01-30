@@ -22,7 +22,17 @@ jobs:
       run: |
         pip install -r requirements.txt
 
+    - name: Download and Set Up NGROK
+      run: |
+      curl -o ngrok.zip https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-windows-amd64.zip
+      powershell -Command "Expand-Archive -Path ngrok.zip -DestinationPath ."
+      ./ngrok.exe authtoken YOUR_NGROK_AUTH_TOKEN
+
+    - name: Start NGROK
+      run: Start-Process -NoNewWindow -FilePath "./ngrok.exe" -ArgumentList "http 5000"
+
     - name: Run Flask Application
       shell: cmd
       run: |
           app\start_server.bat
+
