@@ -29,4 +29,5 @@ jobs:
         taskkill /IM python.exe /F || echo "No previous Flask instance running"
 
     - name: Run Flask Application
-      run: Start-Process -FilePath "cmd.exe" -ArgumentList "/C app\start_server.bat" -NoNewWindow -Wait
+      run: |
+        Start-Process -FilePath "cmd.exe" -ArgumentList "/c app\start_server.bat" -NoNewWindow
