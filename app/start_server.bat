@@ -1,3 +1,3 @@
-off
-python
-app/app.py
+@echo off
+python app/app.py
+
