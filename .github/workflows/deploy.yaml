@@ -22,16 +22,7 @@ jobs:
       run: |
         pip install -r requirements.txt
 
-    - name: List Files for Debugging
-      run: dir /s
-      shell: cmd
-
-    - name: Change Directory to App
-      run: cd app
-      shell: cmd
-
     - name: Run Flask Application
       shell: cmd
       run: |
-        cd app
-        call start_server.bat
+          app\start_server.bat
