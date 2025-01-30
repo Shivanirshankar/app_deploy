@@ -30,9 +30,9 @@ jobs:
 
     - name: Start NGROK
       run: |
-      Start-Process -NoNewWindow -FilePath "./ngrok.exe" -ArgumentList "http 5000"
-      Start-Sleep -Seconds 5
-      Invoke-WebRequest -Uri "http://127.0.0.1:4040/api/tunnels" -UseBasicParsing
+        Start-Process -NoNewWindow -FilePath "./ngrok.exe" -ArgumentList "http 5000"
+        Start-Sleep -Seconds 5
+        Invoke-WebRequest -Uri "http://127.0.0.1:4040/api/tunnels" -UseBasicParsing
 
     - name: Start Flask Application
       shell: cmd
