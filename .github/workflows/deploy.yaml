@@ -26,7 +26,7 @@ jobs:
       run: |
         curl -o ngrok.zip https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-windows-amd64.zip
         powershell -Command "Expand-Archive -Path ngrok.zip -DestinationPath ."
-        ./ngrok.exe authtoken YOUR_NGROK_AUTH_TOKEN
+        ./ngrok.exe authtoken 2sLMOUt76Xbfnagrj5Cek6r1bT8_7sBBCWEi2QpfwjMT28Q9a
 
     - name: Start NGROK
       run: Start-Process -NoNewWindow -FilePath "./ngrok.exe" -ArgumentList "http 5000"
